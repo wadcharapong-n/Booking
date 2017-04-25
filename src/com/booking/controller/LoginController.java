@@ -11,18 +11,31 @@ import org.springframework.web.servlet.ModelAndView;
 import com.booking.Object.User;
 
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
+	
 	@RequestMapping(value="init", method = RequestMethod.GET)
     public ModelAndView onInitLogin() {
         
         return new ModelAndView("login/userForm", "userForm", new User());
     }
- 
+	
     @RequestMapping(value="loginSubmit", method = RequestMethod.POST)
     public ModelAndView loginSubmit(@ModelAttribute("userForm") User userForm,BindingResult result, Model model) {
-    	System.out.println("login Success");
-        model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
+    	
+    	//validate Login
+    	if(validateLogin(userForm)){
+    		return errorPage("Login Fail","init.do");
+    	}    	
         return new ModelAndView("login/userSuccess", "user", userForm);
        
+    }
+    
+    private boolean validateLogin(User userForm){
+    	boolean result = true;
+    	//call service 
+    	if("menkung".endsWith(userForm.getUserName()) && "password".equals(userForm.getPassword())){
+    		result = false;
+    	}    	
+    	return result;
     }
 }
