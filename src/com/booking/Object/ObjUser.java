@@ -2,7 +2,7 @@ package com.booking.Object;
 
 import java.util.List;
 
-public class User {
+public class ObjUser {
 
 	private String name;
 	private String password;
@@ -14,6 +14,7 @@ public class User {
 	private List communityList;
 	private Boolean mailingList;
 	private String userName;
+	private String role;
 	
 	public String getName() {
 		return name;
@@ -74,6 +75,12 @@ public class User {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	

@@ -3,7 +3,7 @@ package com.booking.Object;
 public class ObjMessage {
 	
 	private String resultMessage;
-	private String resultSstatus;
+	private String resultStatus;
 	private String ref1;
 	private String ref2;
 	private String linkButton;
@@ -14,11 +14,11 @@ public class ObjMessage {
 	public void setResultMessage(String resultMessage) {
 		this.resultMessage = resultMessage;
 	}
-	public String getResultSstatus() {
-		return resultSstatus;
+	public String getResultStatus() {
+		return resultStatus;
 	}
-	public void setResultSstatus(String resultSstatus) {
-		this.resultSstatus = resultSstatus;
+	public void setResultStatus(String resultStatus) {
+		this.resultStatus = resultStatus;
 	}
 	public String getRef1() {
 		return ref1;

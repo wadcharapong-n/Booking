@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/styles2.css" rel="stylesheet">
 <title>Login System</title>
 <script type="text/javascript">
 	function onLoad(){
@@ -23,8 +23,7 @@
 </head>
 <body onload="onLoad();">
 	<div class="login-page">
-		<div class="form">
-			<div align="center">Login system</div>
+		<div class="form">			
 			<form:form cssClass="login-form" method="post" modelAttribute="userForm" action="${userActionUrl}">				
 					<form:input id="username" path="userName" />
 					<form:password id="password" path="password" />
