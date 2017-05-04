@@ -9,7 +9,7 @@ import com.booking.Object.ObjUser;
 public class SecurityDAOImpl implements SecurityDAO{
 	
 	public Object getUser(ObjUser userForm){
-		ObjActor actor = null;
+		ObjActor actor = new ObjActor();
 		if("menkung".equals(userForm.getUserName()) && "password".equals(userForm.getPassword())){
 			
 			actor.setId("1");

@@ -43,9 +43,10 @@ public class SecurityServiceImpl implements SecurityServiceFacade{
 	    			
 		}catch(Exception e){
 			e.printStackTrace();
-			result.getObjMessage().setResultStatus("Login Fail!!!!");
-			result.getObjMessage().setResultStatus(BaseConstant.STATUS_FAIL);
+			objMessage.setResultStatus("Login Fail!!!!");
+			objMessage.setResultStatus(BaseConstant.STATUS_FAIL);			
 			result.setObjMessage(objMessage);
+			
 		}
 
 		return result;
