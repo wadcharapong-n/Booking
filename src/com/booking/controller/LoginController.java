@@ -1,9 +1,10 @@
 package com.booking.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-import javax.servlet.http.HttpSession;
+import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,9 +25,16 @@ public class LoginController extends BaseController {
 	@Autowired
 	SecurityServiceFacade  securityServiceFacade;
 	
+	private static final Logger logger = Logger.getLogger(LoginController.class);
+	
 	@RequestMapping(value="main", method = RequestMethod.GET)
-    public ModelAndView onInitMain() {
-        
+    public ModelAndView onInitMain(HttpServletRequest request) {
+		logger.info("Access from : " + request.getLocalAddr());
+		logger.info("Access from : " + request.getRemoteAddr());
+		System.out.println("session id "+request.getSession().getId());
+		System.out.println("session Create "+new Date(request.getSession().getCreationTime()).toString());
+		System.out.println("session LastAcces "+new Date(request.getSession().getLastAccessedTime()).toString());
+		System.out.println("session time expire "+request.getSession().getMaxInactiveInterval());
         return new ModelAndView("mainContent/main", "userForm", new ObjUser());
     }
 	
