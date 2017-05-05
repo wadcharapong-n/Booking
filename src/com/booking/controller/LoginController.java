@@ -1,5 +1,6 @@
 package com.booking.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpSession;
 
@@ -36,7 +37,7 @@ public class LoginController extends BaseController {
     }
 	
     @RequestMapping(value="loginSubmit", method = RequestMethod.POST)
-    public ModelAndView loginSubmit(@ModelAttribute("userForm") ObjUser userForm,BindingResult result, Model model ) {
+    public ModelAndView loginSubmit(@ModelAttribute("userForm") ObjUser userForm,BindingResult result, Model model,HttpServletRequest request ) {
     	
     	ObjGenericResult objGenericResult = new ObjGenericResult();
     	//call Service
@@ -44,8 +45,11 @@ public class LoginController extends BaseController {
     	if(BaseConstant.STATUS_FAIL.equals(objGenericResult.getObjMessage().getResultStatus())){
     		return errorPage(objGenericResult.getObjMessage().getResultMessage(), "main.do");
     	}
+    	
+    	System.out.println(request.getSession().getId());
         return new ModelAndView("mainContent/main", "user", objGenericResult);
        
     }
+    
     
 }
