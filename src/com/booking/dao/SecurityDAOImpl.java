@@ -14,10 +14,10 @@ import com.booking.Object.ObjUser;
 public class SecurityDAOImpl implements SecurityDAO{
 	
 	public Object getUser(ObjUser userForm){
-		ObjActor actor = new ObjActor();
+		ObjActor actor = null;
 		Connection conn = null;
 		if("menkung".equals(userForm.getUserName()) && "password".equals(userForm.getPassword())){
-			
+			actor = new ObjActor();
 			actor.setId("1");
 			actor.setName("Menkung");
 			actor.setUserName("Menkung");

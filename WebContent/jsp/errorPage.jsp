@@ -10,8 +10,8 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-			<div align="center">${objMessage.resultMessage }</div>
-			<button onclick="location.href='${pageContext.request.contextPath}/${objMessage.linkButton }'">Back</button>
+			<p align="center" style="color:red;">${objMessage.resultMessage }</p>
+			<button style="background:red;"  onclick="location.href='${pageContext.request.contextPath}/${objMessage.linkButton }'">Back</button>
 		</div>
 	</div>
 </body>

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.booking.Object.ObjGenericResult;
 import com.booking.Object.ObjUser;
 import com.booking.constant.BaseConstant;
+import com.booking.form.LoginForm;
 import com.booking.services.SecurityServiceFacade;
 
 @Controller("loginController")
@@ -41,15 +42,20 @@ public class LoginController extends BaseController {
 	@RequestMapping(value="init", method = RequestMethod.GET)
     public ModelAndView onInitLogin() {
         
-        return new ModelAndView("login/userForm", "userForm", new ObjUser());
+        return new ModelAndView("login/userForm", "userForm", new LoginForm());
     }
-	
     @RequestMapping(value="loginSubmit", method = RequestMethod.POST)
-    public ModelAndView loginSubmit(@ModelAttribute("userForm") ObjUser userForm,BindingResult result, Model model,HttpServletRequest request ) {
+    public ModelAndView loginSubmit(@ModelAttribute("userForm") LoginForm userForm,BindingResult result, Model model,HttpServletRequest request ) {
     	
     	ObjGenericResult objGenericResult = new ObjGenericResult();
+    	
+    	//prepare criteria
+    	ObjUser objUser = new ObjUser();
+    	objUser.setUserName(userForm.getUserName());
+    	objUser.setPassword(userForm.getPassword());
+    	
     	//call Service
-        objGenericResult = securityServiceFacade.loginUser(userForm);
+        objGenericResult = securityServiceFacade.loginUser(objUser);
     	if(BaseConstant.STATUS_FAIL.equals(objGenericResult.getObjMessage().getResultStatus())){
     		return errorPage(objGenericResult.getObjMessage().getResultMessage(), "main.do");
     	}

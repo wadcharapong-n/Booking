@@ -29,14 +29,14 @@ public class SecurityServiceImpl implements SecurityServiceFacade{
 			if(daoResult != null){				
 				actor = (ObjActor) daoResult;
 				
-				objMessage.setResultStatus("Login Success!!!!");
+				objMessage.setResultMessage("Login Success!!!!");
 				objMessage.setResultStatus(BaseConstant.STATUS_SUCCESS);
 				
 				result.setObjActor(actor);
 				result.setObjMessage(objMessage);
 				
 	    	}else{
-	    		objMessage.setResultStatus("Login Fail!!!!");
+	    		objMessage.setResultMessage("Login Fail!!!!");
 	    		objMessage.setResultStatus(BaseConstant.STATUS_FAIL);
 	    		result.setObjMessage(objMessage);
 	    	}

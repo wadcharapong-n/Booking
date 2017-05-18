@@ -27,7 +27,7 @@
 			<form:form cssClass="login-form" method="post" modelAttribute="userForm" action="${userActionUrl}">				
 					<form:input id="username" path="userName" />
 					<form:password id="password" path="password" />
-					<input type="submit" />				
+					<input type="submit" style="background:#2cff2c;" value="Login"/>				
 			</form:form>
 		</div>
 	</div>
