@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ObjActor {
 
-	private String id;
+	private Integer userId;
 	private String name;
 	private String gender;
 	private String country;
@@ -12,12 +12,7 @@ public class ObjActor {
 	private String userName;
 	private byte role;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -53,6 +48,12 @@ public class ObjActor {
 	}
 	public void setRole(byte role) {
 		this.role = role;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	
 	

@@ -10,7 +10,7 @@
 		   		<ul>					
 					<li class=""></li>
 					<li class="home"><a href="init.do">Login</a></li>					
-					<li class=""><a href="service.do">Services</a></li>
+					<li class=""><a href="serviceInit.do">Services</a></li>
 					<li class=""><a href="">Contact</a></li>
 					<li class=""></li>
 				</ul>

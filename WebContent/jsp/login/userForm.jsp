@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/css/styles2.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/styles3.css" rel="stylesheet">
 <title>Login System</title>
 <script type="text/javascript">
 	function onLoad(){
@@ -22,7 +22,39 @@
 </script>
 </head>
 <body onload="onLoad();">
-	<div class="login-page">
+<center>
+	<div class="text-center" style="padding:50px 0">
+		<div class="logo">login</div>
+		<!-- Main Form -->
+		<div class="login-form-1">
+			<form:form id="login-form" cssClass="text-left" method="post" modelAttribute="userForm" action="${userActionUrl}" >
+				<div class="login-form-main-message"></div>
+				<div class="main-login-form">
+					<div class="login-group">
+						<div class="form-group">
+							<label for="lg_username" class="sr-only">Username</label>
+							<form:input id="username" path="userName" cssClass="form-control" name="lg_username" placeholder="username" />
+						</div>
+						<div class="form-group">
+							<label for="lg_password" class="sr-only">Password</label>
+							<form:password id="password" path="password" cssClass="form-control"  name="lg_password" placeholder="password" />
+						</div>
+						<!-- <div class="form-group login-group-checkbox">
+							<input type="checkbox" id="lg_remember" name="lg_remember">
+							<label for="lg_remember">remember</label>
+						</div> -->
+					</div>
+					<button type="submit" class="login-button">Login</button>
+				</div>
+				<div class="etc-login-form">
+					<p>forgot your password? <a href="#">click here</a></p>
+					<p>new user? <a href="${pageContext.request.contextPath }/initRegister.do">create new account</a></p>
+				</div>
+			</form:form>
+		</div>
+		<!-- end:Main Form -->
+	</div>
+	<!-- <div class="login-page">
 		<div class="form">			
 			<form:form cssClass="login-form" method="post" modelAttribute="userForm" action="${userActionUrl}">				
 					<form:input id="username" path="userName" />
@@ -30,6 +62,7 @@
 					<input type="submit" style="background:#2cff2c;" value="Login"/>				
 			</form:form>
 		</div>
-	</div>
+	</div> -->
+</center>
 </body>
 </html>

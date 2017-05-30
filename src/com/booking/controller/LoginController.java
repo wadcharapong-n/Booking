@@ -52,7 +52,7 @@ public class LoginController extends BaseController {
     	//prepare criteria
     	ObjUser objUser = new ObjUser();
     	objUser.setUserName(userForm.getUserName());
-    	objUser.setPassword(userForm.getPassword());
+    	objUser.setPassword(encypt(userForm.getPassword()));
     	
     	//call Service
         objGenericResult = securityServiceFacade.loginUser(objUser);
@@ -60,7 +60,7 @@ public class LoginController extends BaseController {
     		return errorPage(objGenericResult.getObjMessage().getResultMessage(), "main.do");
     	}
     	
-    	System.out.println(request.getSession().getId());
+    	System.out.println(objGenericResult.getObjActor().getUserId());
         return new ModelAndView("mainContent/main", "user", objGenericResult);
        
     }

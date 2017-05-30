@@ -1,8 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%
 	//response.sendRedirect("init.do");
 %>
+<c:set var="userActionUrl" value="${pageContext.request.contextPath}/service.do" />
 <html>
 <head>
 <title>Free Resorts Website Template | Home :: w3layouts</title>
@@ -13,6 +15,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Rochester'
 	rel='stylesheet' type='text/css'>
+<style type="text/css">
+	#textarea {
+	    border: 1px #ddd solid;
+	    width: 400px;
+	    height: 120px;
+	    font: 9pt Consolas;
+	    resize: none;
+	}
+</style>
 </head>
 <body class="hide-scrollbar">
 	<jsp:include page="../header.jsp" />
@@ -21,35 +32,14 @@
 			<div class="content-bot">
 				<div class="inner-top">
 					<div class="content span_1_of_2">
-						<div class="grid images_3_of_2">
-							<img src="${pageContext.request.contextPath}/images/pic.jpg">
-						</div>
-						<div class="desc span_3_of_2">
-							<h3>
-								Welcome</br> <span class="resort">Our Travel Resorts</span>
-							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-								aute irure dolor in reprehenderit in voluptat.</p>
-
-
-							<a href="#" class="button-1 top">&gt; read more</a>
-						</div>
-					</div>
-					<div class="rightsidebar span_3_of_1">
-						<h3>Testimonials</h3>
-						<div class="comment">
-							<p class="upper clr-1">Lorem ipsum dolor sit amet,
-								consectetur dipiscing elit. Vivamus sed arcu dui, eu tincidunt
-								sem. Vivamus hendrerit mauris ut dui gravida ut Lorem ipsum
-								dolor sit ame.</p>
-						</div>
-						<div class="name">
-							<span class="user">Mr. Lorem ipsum</span> - <span class="info">Guide</span>
-						</div>
-					</div>
+						<form:form cssClass="login-form" method="post" modelAttribute="serviceForm" action="${userActionUrl}">				
+								<form:textarea id="textPost" path="textPost"  rows="5"/>								
+								<input type="submit" style="background:#2cff2c;" value="Submit"/>				
+						</form:form>
+						<form:form cssClass="login-form" method="get" modelAttribute="serviceForm" action="${pageContext.request.contextPath}/fetchFacebook.do">														
+								<input type="submit" style="background:#2cff2c;" value="fetch"/>				
+						</form:form>
+					</div>					
 					<div class="clear"></div>
 				</div>
 			</div>
