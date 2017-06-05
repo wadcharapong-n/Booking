@@ -7,6 +7,9 @@ public class CreateUserForm {
 	private String email;
 	private String fullname;
 	private String gender;
+	private Integer role;
+	private Integer userid;
+	
 	
 	public String getUsername() {
 		return username;
@@ -37,6 +40,18 @@ public class CreateUserForm {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public Integer getRole() {
+		return role;
+	}
+	public void setRole(Integer role) {
+		this.role = role;
+	}
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 	
 	

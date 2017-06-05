@@ -9,6 +9,7 @@ public class TblUser {
 	private String password;
 	private String email;
 	private String fullname;
+	private Integer roleid;
 	private String gender;
 	private Date createDate;
 	private Integer createBy;
@@ -74,6 +75,12 @@ public class TblUser {
 	}
 	public void setUpdateBy(Integer updateBy) {
 		this.updateBy = updateBy;
+	}
+	public Integer getRoleid() {
+		return roleid;
+	}
+	public void setRoleid(Integer roleid) {
+		this.roleid = roleid;
 	}
 	
 	

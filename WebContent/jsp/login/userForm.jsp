@@ -47,7 +47,7 @@
 					<button type="submit" class="login-button">Login</button>
 				</div>
 				<div class="etc-login-form">
-					<p>forgot your password? <a href="#">click here</a></p>
+					<p>forgot your password? <a href="initForgot.do">click here</a></p>
 					<p>new user? <a href="${pageContext.request.contextPath }/initRegister.do">create new account</a></p>
 				</div>
 			</form:form>

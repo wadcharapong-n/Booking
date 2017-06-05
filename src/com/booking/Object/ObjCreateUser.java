@@ -14,6 +14,7 @@ public class ObjCreateUser {
 	private Integer createBy;
 	private Date updateDate;
 	private Integer updateBy;
+	private Integer role;
 	
 	public Integer getUserId() {
 		return userId;
@@ -74,6 +75,12 @@ public class ObjCreateUser {
 	}
 	public void setUpdateBy(Integer updateBy) {
 		this.updateBy = updateBy;
+	}
+	public Integer getRole() {
+		return role;
+	}
+	public void setRole(Integer role) {
+		this.role = role;
 	}
 	
 	

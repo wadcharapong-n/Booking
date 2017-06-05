@@ -10,7 +10,7 @@ public class ObjActor {
 	private String country;
 	private String aboutYou;
 	private String userName;
-	private byte role;
+	private Integer role;
 	
 
 	public String getName() {
@@ -43,17 +43,17 @@ public class ObjActor {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public byte getRole() {
-		return role;
-	}
-	public void setRole(byte role) {
-		this.role = role;
-	}
 	public Integer getUserId() {
 		return userId;
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public Integer getRole() {
+		return role;
+	}
+	public void setRole(Integer role) {
+		this.role = role;
 	}
 	
 	
