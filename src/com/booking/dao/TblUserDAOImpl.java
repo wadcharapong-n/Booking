@@ -153,6 +153,37 @@ public class TblUserDAOImpl extends BaseDAO implements TblUserDAO {
 		return result;
 		
 	}
+	private final static String getCountAllUserSQL = "select count(*) from tbluser ";
+	public int getCountAllUser(){
+		int result = 0;
+		Connection conn = null;	
+		PreparedStatement ps = null;
+		try{
+			StringBuffer sql = new StringBuffer();
+			sql.append(getCountAllUserSQL);
+			
+			conn = BaseDAO.getConnection();
+			ps = conn.prepareStatement(sql.toString());
+//			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				result = rs.getInt(1);
+			}
+			rs.close();
+			ps.close();
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+		
+		return result;
+	}
 	
 	private final String updateUserSQL = "update tbluser set email = ?,gender = ?, fullname = ?,roleid = ?,updateDate = now(), updateBy = ? where userid = ? ";
 		

@@ -104,7 +104,7 @@ public class UserServiceImpl implements UserServiceFacade {
 		ArrayList<ObjCreateUser> result = new ArrayList<ObjCreateUser>();
 		ArrayList<TblUser> tblUsers = new ArrayList<TblUser>();
 		tblUsers = tblUserDao.getAllUser();
-		
+		int countUser = tblUserDao.getCountAllUser();
 		if(tblUsers != null){
 			for(TblUser tbl : tblUsers){
 				ObjCreateUser obj = new ObjCreateUser();
@@ -114,11 +114,11 @@ public class UserServiceImpl implements UserServiceFacade {
 				obj.setGender(tbl.getGender());
 				obj.setRole(tbl.getRoleid());
 				obj.setFullname(tbl.getFullname());
+				obj.setCountUser(countUser);
 				result.add(obj);
 			}
 			
 		}
-		
 		
 		return result;
 	}

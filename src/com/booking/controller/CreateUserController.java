@@ -18,10 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.booking.Object.ObjActor;
 import com.booking.Object.ObjCreateUser;
 import com.booking.Object.ObjGenericResult;
-import com.booking.Object.ObjUser;
+import com.booking.Object.ObjMenu;
 import com.booking.constant.BaseConstant;
 import com.booking.form.CreateUserForm;
-import com.booking.form.LoginForm;
+import com.booking.services.MenuServiceFacade;
 import com.booking.services.SecurityServiceFacade;
 import com.booking.services.UserServiceFacade;
 
@@ -33,11 +33,18 @@ public class CreateUserController extends BaseController{
 	@Autowired
 	UserServiceFacade userServiceFacade;
 	
+	@Autowired
+	MenuServiceFacade  menuServiceFacade;
+	
 	private static final Logger logger = Logger.getLogger(CreateUserController.class);
 	
 	@RequestMapping(value="initRegister", method = RequestMethod.GET)
     public ModelAndView onInitMain(HttpServletRequest request) {
-
+		
+		if(request.getSession().getAttribute("menu") == null){
+			ArrayList<ObjMenu> objMenus = menuServiceFacade.getAllMenu();
+			request.getSession().setAttribute("menu", objMenus);
+		}
         return new ModelAndView("login/registerUser", "createForm", new CreateUserForm());
     }
 	
@@ -68,12 +75,11 @@ public class CreateUserController extends BaseController{
 	
 	@RequestMapping(value="initListUser", method = RequestMethod.GET)
     public ModelAndView onInitListUser(HttpServletRequest request) {
-		CreateUserForm mghtUser = new CreateUserForm();
 		ArrayList<ObjCreateUser> objCreateUser = new ArrayList<ObjCreateUser>();
 		
 		//call Service
 		objCreateUser = userServiceFacade.getAllUser();
-			
+		request.setAttribute("CountUser", objCreateUser.get(0).getCountUser());
         return new ModelAndView("login/listUser", "listUser", objCreateUser);
     }
 	

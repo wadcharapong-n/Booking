@@ -4,20 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css"
-	rel="stylesheet" media="screen">
-<link
-	href="${pageContext.request.contextPath}/css/bootstrap-responsive.min.css"
-	rel="stylesheet" media="screen">
-<link href="${pageContext.request.contextPath}/css/styles4.css"
-	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/style.css"
-	rel="stylesheet" type="text/css" media="all" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/bootstrap-responsive.min.css"
+	rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/css/mgntUser.css"
+	rel="stylesheet" media="all">
+
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
 	<div class="main">
 		<div class="row-fluid">
 			<div class="span2"></div>
@@ -27,7 +24,9 @@
 					<div class="navbar navbar-inner block-header">
 						<div class="muted pull-left">Users</div>
 						<div class="pull-right">
-							<span class="badge badge-info">10</span>
+							<span class="badge badge-info">
+								<c:out value="${CountUser }"></c:out>
+							</span>
 						</div>
 					</div>
 					<div class="block-content collapse in">

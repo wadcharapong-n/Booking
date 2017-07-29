@@ -15,6 +15,7 @@ public class ObjCreateUser {
 	private Date updateDate;
 	private Integer updateBy;
 	private Integer role;
+	private int countUser;
 	
 	public Integer getUserId() {
 		return userId;
@@ -81,6 +82,12 @@ public class ObjCreateUser {
 	}
 	public void setRole(Integer role) {
 		this.role = role;
+	}
+	public int getCountUser() {
+		return countUser;
+	}
+	public void setCountUser(int countUser) {
+		this.countUser = countUser;
 	}
 	
 	

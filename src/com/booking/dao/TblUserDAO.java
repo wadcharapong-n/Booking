@@ -12,6 +12,7 @@ public interface TblUserDAO {
 	public Object updateUser(TblUser updateUser,ObjActor actor) throws SQLException;
 	public TblUser getUserById(Integer userId);
 	public ArrayList<TblUser> getAllUser();
+	public int getCountAllUser();
 	public TblUser getUserByUsername(String username);
 	public void updatePassword(TblUser updateUser) throws SQLException;
 }
